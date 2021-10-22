@@ -27,7 +27,7 @@ from django.contrib.auth.decorators import login_required
 # def dashboard(request):
 #     return render(request, 'account/dashboard.html', { 'section': 'dashboard'})
 
-def base(request):
+""" def base(request):
     return render(request, 'home.html')
 def shop(request):
     return render(request, 'shop.html')
@@ -36,4 +36,4 @@ def single_product(request):
 def cart(request):
     return render(request, 'cart.html')
 def checkout(request):
-    return render(request, 'checkout.html')
+    return render(request, 'checkout.html') """

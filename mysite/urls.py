@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+from . import views
+from mysite.settings import STATIC_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('accounts.urls')),
-]
+    path('account/',include('accounts.urls')),
+    path('store/',include('Store.urls')),
+    path('',views.home,name="home"),
+    path('shop/',views.shop,name='shop'),
+    path('single_product',views.single_product, name='single_product'),
+    path('cart/',views.cart, name='cart'),
+    path('checkout/',views.checkout, name='checkout')
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

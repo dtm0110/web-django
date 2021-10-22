@@ -6,11 +6,6 @@ from . import views
 
 urlpatterns = [
 #    path('login/', views.user_login , name='login'),
-    path('',views.base, name='home'), 
-    path('shop/',views.shop,name='shop'),
-    path('single_product',views.single_product, name='single_product'),
-    path('cart/',views.cart, name='cart'),
-    path('checkout/',views.checkout, name='checkout')
     # path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     # path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     # path('logout/', auth_views.LogoutView.as_view(template_name='registration/logged_out.html'), name='logout'),
