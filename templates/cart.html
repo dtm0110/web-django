@@ -17,7 +17,7 @@
                                     <thead>
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
-                                            <th class="product-thumbnail">&nbsp;</th>
+                                            <th class="product-thumbnail">Hình ảnh</th>
                                             <th class="product-name">Sản phẩm</th>
                                             <th class="product-price">Giá</th>
                                             <th class="product-quantity">Số lượng</th>
@@ -25,40 +25,51 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% for item in CartItems %}
-                                         <tr class="cart_item">
-                                            <td class="product-remove">
-                                                <a title="Remove this item" class="remove" href="#">×</a> 
-                                            </td>
+                                    {% if CartItems|length <= 0 %}
+                                        <td colspan="6" style="font-size:16px;font-weight:700;padding:36px">Giỏ hàng đang trống</td>
+                                    {% else %}
+                                        {% for item in CartItems %}
+                                            {% csrf_token %}
+                                            <tr class="cart_item">
+                                                <td class="product-remove">
+                                                    <a title="Remove this item" class="remove" href="{% url 'remove_cart_item' item.product.id item.id %}">×</a> 
+                                                </td>
 
-                                            <td class="product-thumbnail">
-                                                <a href="single-product.htm"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{item.product.img.url}}" pagespeed_url_hash="2028383707" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
-                                            </td>
+                                                <td class="product-thumbnail">
+                                                    <a href="single-product.htm"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{item.product.img.url}}" pagespeed_url_hash="2028383707" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+                                                </td>
 
-                                            <td class="product-name">
-                                                <a href="single-product.htm">{{item.product.name}}</a> 
-                                            </td>
+                                                <td class="product-name">
+                                                    <a href="single-product.htm">{{item.product.name}}</a> 
+                                                </td>
 
-                                            <td class="product-price">
-                                                <span class="amount">{{item.product.price}}</span> 
-                                            </td>
+                                                <td class="product-price">
+                                                    <span class="amount">{{item.product.price}}</span> 
+                                                </td>
 
-                                            <td class="product-quantity">
-                                                <div class="quantity buttons_added">
-                                                    <input type="button" class="minus" value="-">
-                                                   {% comment %}  <button class="btn btn-light" type="submit" id="button-minus" onclick="location.href='{% url 'remove_cart' item.product.id item.id %}'">
-                                                        <i class="fa fa-minus"></i>
-                                                    </button> {% endcomment %}
-                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="{{item.quantity}}" min="0" step="1">
-                                                    <input type="button" class="plus" value="+">
-                                                </div>
-                                            </td>
+                                                <td class="product-quantity">
+                                                    <div class="quantity buttons_added">
+                                                        {% comment %} <input type="submit class="minus" value="-" > {% endcomment %}
+                                                        {% comment %} <button class="btn btn-light" style="font-size:12px;padding:4px 12px; border-radius:2px" type="submit" id="button-minus" onclick="location.href='{% url 'remove_cart' item.product.id item.id %}'">
+                                                            <i class="fa fa-minus"></i>
+                                                        </button> {% endcomment %}
+                                                        <a href="{% url 'remove_cart' item.product.id item.id %}" style="font-size:12px;padding:4px 12px; border-radius:2px; background:#5a88ca;color:#fff">-</a>
+                                                        {% comment %} <a href="{% url 'remove_cart' item.product.id item.id %} " class="btn btn-light"/> {% endcomment %}
+                                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="{{item.quantity}}" >
+                                                        {% comment %} <input type="button" class="plus" value="+"> {% endcomment %}
+                                                        {% comment %} <button class="btn btn-light" style="font-size:12px;padding:4px 12px; border-radius:2px" type="submit" id="button-plus" onclick="location.href='{% url 'add_cart' item.product.id %}'">
+                                                            <i class="fa fa-plus"></i>
+                                                        </button> {% endcomment %}
+                                                        <a href="{% url 'add_cart' item.product.id %}" style="font-size:12px;padding:4px 12px; border-radius:2px; background:#5a88ca;color:#fff">+</a>
+                                                    </div>
+                                                </td>
 
-                                            <td class="product-subtotal">
-                                                <span class="amount">${{item.sub_total}}</span> 
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
+                                                <td class="product-subtotal">
+                                                    <span class="amount">${{item.sub_total}}</span> 
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% endif %}
                                        
 
                                         <tr>
