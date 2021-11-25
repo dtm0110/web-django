@@ -1132,3 +1132,9 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 .pt-22{
     padding-top: 22px;
 }
+
+.container-pay{
+    width: 750px;
+    margin:auto;
+    padding:50px;
+  }

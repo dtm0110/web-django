@@ -1,0 +1,105 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="" style="width:750px;margin:auto;padding:50px 0">
+        <div class="container-pay" >   
+            <div class="invoice-container" ref="document" id="html">
+                <table style="width:100%; height:auto;  text-align:center; " BORDER=0 CELLSPACING=0>
+                    <thead style="background:#fafafa; padding:8px;">
+                        <tr style="font-size: 20px;">
+                        <td colspan="4" style="padding:20px 20px;text-align: left;">NHÓM 6 - Hoá Đơn</td>
+                        </tr>
+                    </thead>
+                    <tbody style="background:#ffff;padding:20px;">
+                        <tr>
+                        <td colspan="4" style="padding:20px 0px 5px 20px;text-align:left;font-size: 16px; font-weight: bold;color:#000;">Hello, {{first_name}} {{last_name}}</td>   
+                        </tr>
+                        <tr>
+                        <td colspan="4" style="text-align:left;padding:10px 10px 10px 20px;font-size:14px;">Email: {{email}}</td>
+                        </tr>
+                        <tr>
+                        <td colspan="4" style="text-align:left;padding:10px 10px 10px 20px;font-size:14px;">Phone: {{phone}}</td>
+                        </tr>
+                        <tr>
+                        <td colspan="4" style="text-align:left;padding:10px 10px 10px 20px;font-size:14px;">Your order details</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="" style="width:100%; height:auto; background-color:#fff;text-align:center; background:#fafafa">
+                    <tbody>
+                        <tr style="color:#6c757d; font-size: 20px;">
+                        <td style="border-right:1.5px dashed  #DCDCDC; width:25%;font-size:12px;font-weight:700;padding: 10px 0px 10px 0px;">Order Date</td>
+                        <td style="border-right: 1.5px dashed  #DCDCDC ;width:25%;font-size:12px;font-weight:700;padding: 10px 0px 10px 0px;">Order No.</td>
+                        <td style="border-right:1.5px dashed  #DCDCDC ;width:25%;font-size:12px;font-weight:700;padding: 10px 0px 10px 0px;">Payment</td>
+                        <td style="width:25%;font-size:12px;font-weight:700;padding: 10px 0px 10px 0px;">Shipping Address</td>
+                        </tr>
+                        <tr style="background-color:#fff; font-size:12px; color:#262626;">
+                        <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa; padding:0 0 10px 0">{{date}}</td>
+                        <td style="border-right:1.5px dashed  #DCDCDC ;width:25% ; font-weight:bold;background: #fafafa; padding:0 0 10px 0">01</td>
+                        <td style="border-right:1.5px dashed  #DCDCDC ;width:25%; font-weight:bold;background: #fafafa; padding:0 0 10px 0">CASH</td>
+                        <td style="width:25%; font-weight:bold;background: #fafafa;">{{address}},{{city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="width:100%; height:auto; background-color:#fff; margin-top:0px;  padding:20px; font-size:12px; border: 1px solid #ebebeb; border-top:0px;">
+                <thead>
+                    <tr style=" color: #6c757d;font-weight: bold; padding: 5px;">
+                    <td colspan="2" style="text-align: left; padding-left:10px">PRODUCT INFORMATION</td>
+                    <td style="text-align: center;">PRICE</td>
+                    <td style="padding: 10px;text-align:center;">QUANTITY</td>
+                    <td style="text-align: right;padding: 10px;">TOTAL PRICE</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in CartItems %}
+                    <tr>
+                    <td style="width:0%; ">
+                        <a href=""><img src="https://images.asos-media.com/products/asos-design-puff-sleeve-linen-mini-dress-with-pearl-buttons/13307266-1-black?$XXL$&wid=513&fit=constrain" style="width:100px;" /></a>
+                    </td>
+                    <td style="width:20%;margin-left:10px;text-align: center;">{{item.product.name}}</td>
+                    <td style="width:20%;padding: 10px; text-align:center;">{{item.product.price}}</td>
+                    <td style="width:20%;padding: 10px;text-align: center;">{{item.quantity}}</td>
+                    <td style="width:30%; ;font-weight: bold;font-size: 14px;">
+                        <table style="width:100%;">
+                        <tr><td style="text-align:end;font-size:13px; padding-right:10px">${{item.sub_total}}</td></tr>
+                        </table>
+                    </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                <table style="width:100%; height:auto; background-color:#fff;padding:20px; font-size:12px; border: 1px solid #ebebeb; border-top:0">
+                <tbody>
+                    <tr style="padding:20px;color:#000;font-size:15px">
+                    <td style="font-weight: bold;padding:10px 20px">Total Bill</td>
+                    <td style="text-align:right;padding:5px 20px;font-weight: bold;font-size:16px;">${{total}}</td>
+                    </tr>
+
+                    <tr>
+                    <td colspan="2" style="font-weight:bold;"><span style="color:#c61932;font-weight: bold;padding:0 20px">THANK YOU</span> for shipping with us!</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" style="font-weight:bold;text-align:left;padding:10px 0px 0px 20px;font-size:14px;">THRED<span>+</span> team</td>
+                    </tr>
+                </tbody>
+                <tfoot style="padding-top:20px;font-weight: bold;">
+                    <tr>
+                    <td style="padding:10px 0 20px 20px;">Need help? Contact us <span style="color:#c61932"> nhom6@projectpython.shop </span></td>
+                    </tr>
+                </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+
+{% block active %}
+                <li class=""><a href="{% url 'home' %}">Home</a></li>
+                <li class=""><a href="{% url 'shop' %}">Shop page</a></li>
+                <li class=""><a href="{% url 'cart' %}">Cart</a></li>
+                <li class="active"><a href="{% url 'home' %}">Payment</a></li>
+{% endblock  %}

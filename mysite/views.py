@@ -1,21 +1,33 @@
 from django.shortcuts import render
 from Store.models import Product
 from Carts.models import CartItem
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-def home(request):
-    Products = Product.objects.all() 
-    return render(request,"home.html",{'Products':Products})
+
+    
+@login_required(login_url='/user/login/')   
 def cart(request):
     CartItems = CartItem.objects.all()
     return render(request,"cart.html",{'CartItems':CartItems})
 
-def base(request):
-    return render(request, 'home.html')
-def shop(request):
-    return render(request, 'shop.html')
-def single_product(request):
-    return render(request, 'single-product.html')
-""" def cart(request):
-    return render(request, 'cart.html') """
+@login_required(login_url='/user/login/')
 def checkout(request):
-    return render(request, 'checkout.html')
+    total = 0  
+    quantity = 0
+    CartItems = CartItem.objects.all()
+    for cart_item in CartItems:
+        print(cart_item.sub_total)
+        total = total + cart_item.sub_total()
+        quantity = quantity + cart_item.quantity
+    context = {
+        'CartItems' : CartItems,
+        'total': total,
+        'quantity': quantity
+    }
+    return render(request,"checkout.html",context)
+
+def base(request):
+    return render(request, 'home.html');
+
+def single_product(request):
+    return render(request,"single-product.html");

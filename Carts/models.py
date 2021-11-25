@@ -7,10 +7,8 @@ from Store.models import Product
 class Cart(models.Model):
     cart_id = models.CharField(max_length=250, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
-
     def __str__(self):
         return str(self.cart_id)
-
 
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -20,7 +18,7 @@ class CartItem(models.Model):
     is_active = models.BooleanField(default=True)
 
     def sub_total(self):
-        return self.quantity * self.product.price
-
+        return int(self.quantity * self.product.price)
+    
     def __unicode__(self):
         return self.product 

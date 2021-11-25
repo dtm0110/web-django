@@ -1,252 +1,130 @@
-{%extends 'base.html'%}
+{% extends "base.html" %}
 
-{% block  content%}
-     <div class="single-product-area pt-22">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <form action="">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$100.00</del>
-                            </div>                             
-                        </div>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-8">
-                    <div class="product-content-right">
-                        <div class="product-breadcroumb">
-                            <a href="">Home</a>
-                            <a href="">Category Name</a>
-                            <a href="">Sony Smart TV - 2015</a>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="product-images">
-                                    <div class="product-main-img">
-                                        <img src="img/product-2.jpg" alt="">
-                                    </div>
-                                    
-                                    <div class="product-gallery">
-                                        <img src="img/product-thumb-1.jpg" alt="">
-                                        <img src="img/product-thumb-2.jpg" alt="">
-                                        <img src="img/product-thumb-3.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6">
-                                <div class="product-inner">
-                                    <h2 class="product-name">Sony Smart TV - 2015</h2>
-                                    <div class="product-inner-price">
-                                        <ins>$700.00</ins> <del>$100.00</del>
-                                    </div>    
-                                    
-                                    <form action="" class="cart">
-                                        <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>   
-                                    
-                                    <div class="product-inner-category">
-                                        <p>Category: <a href="">Summer</a>. Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>. </p>
-                                    </div> 
-                                    
-                                    <div role="tabpanel">
-                                        <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                <h2>Product Description</h2>  
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
+{% block content %}
 
-                                                <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="profile">
-                                                <h2>Reviews</h2>
-                                                <div class="submit-review">
-                                                    <p><label for="name">Name</label> <input name="name" type="text"></p>
-                                                    <p><label for="email">Email</label> <input name="email" type="email"></p>
-                                                    <div class="rating-chooser">
-                                                        <p>Your rating</p>
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5" style="margin-top:50px;margin-bottom:50px">
 
-                                                        <div class="rating-wrap-post">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                    <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                                    <p><input type="submit" value="Submit"></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="related-products-wrapper">
-                            <h2 class="related-products-title">Related Products</h2>
-                            <div class="related-products-carousel">
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-1.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
+      <!--Grid row-->
+      <div class="row wow fadeIn">
 
-                                    <h2><a href="">Sony Smart TV - 2015</a></h2>
+        <!--Grid column-->
+        <div class="col-md-6 mb-4" style="text-align:center;">
 
-                                    <div class="product-carousel-price">
-                                        <ins>$700.00</ins> <del>$100.00</del>
-                                    </div> 
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-2.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="">Apple new mac book 2015 March :P</a></h2>
-                                    <div class="product-carousel-price">
-                                        <ins>$899.00</ins> <del>$999.00</del>
-                                    </div> 
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-3.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="">Apple new i phone 6</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>$400.00</ins> <del>$425.00</del>
-                                    </div>                                 
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-4.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="">Sony playstation microsoft</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>$200.00</ins> <del>$225.00</del>
-                                    </div>                            
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-5.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="">Sony Smart Air Condtion</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>$1200.00</ins> <del>$1355.00</del>
-                                    </div>                                 
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                        <img src="img/product-6.jpg" alt="">
-                                        <div class="product-hover">
-                                            <a href="" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="">Samsung gallaxy note 4</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>$400.00</ins>
-                                    </div>                            
-                                </div>                                    
-                            </div>
-                        </div>
-                    </div>                    
-                </div>
+          <img src="{{object.img.url}}" class="img-fluid" alt="" style="border-radius: 14px;height:460px;">
+          <div style="display:flex;justify-content:space-evenly;padding-top:30px;font-size:14px;align-items:center">
+            <div style="display:flex;padding:15px 0;align-items:center;font-size:16px">
+              <span style="padding-right:10px">Chia sẻ sản phẩm với</span>
+              <div style="display:flex">
+                <i class="fab fa-facebook" style="color:#3b5999;font-size:25px;margin-right:8px"></i>
+                <i class="fab fa-twitter" style="color:#4cd1ff;font-size:25px;margin-right:8px"></i>
+                <i class="fab fa-instagram" style="color:#f3947b;font-size:25px;margin-right:8px"></i>
+              </div>
             </div>
+
+            <span style="height:40px;width:1px;background-color:#ccc;display:block;"></span>
+
+            <div style="display: flex;padding:15px 0;font-size:16px">
+              <i class="fas fa-heart" style="color:red;position:relative;top:-1px;font-size:25px;margin-right:8px"></i>
+              <p style="margin-bottom:0px">Đã thích (2.3k)</p>
+            </div>
+          </div>
         </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4" style="padding-left:100px">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3" style="position:relative;left:-15px">
+              <a href="">
+                <span class="badge purple mr-1">{{ object.category }} </span>
+              </a>
+            </div>
+            
+            <strong>
+              <h1>
+                <p style="color:#5a88ca" >
+                  <span class="">{{ object.name }} </span>
+                </p>
+              </h1>
+              
+            </strong>
+
+            <p class="lead">
+              {% if object.discount_price %}
+                <span class="mr-1" style="color:#ccc">
+                  <del>${{ object.price }}</del>
+                </span>
+                <span>${{ object.discount_price }}</span>
+              {% else %} 
+                <span>${{ object.price }} </span>
+              {% endif %}
+            </p>
+
+            <p class="lead font-weight-bold">Mô tả sản phẩm</p>
+
+            <p>{{ object.description }}</p>
+
+            
+            <a href="{% url 'add_cart' product.id %}" class="btn btn-primary btn-md my-0 p">
+              Thêm vào giỏ hàng
+              <i class="fas fa-cart-plus" style="font-size:13px"></i>
+            </a>
+            
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+      <br>
+      <hr >
+      
     </div>
+  </main>
+
+{% endblock content %}
+
+{% comment %} {% block active %}
+                <li class=""><a href="{% url 'home' %}">Home</a></li>
+                <li class=""><a href="{% url 'shop' %}">Shop page</a></li>
+                <li class=""><a href="{% url 'cart' %}">Cart</a></li>
+                <li style="margin-left: 488px; margin-top: 13px;">
+                    <form action="{% url 'search' %}" class="search" method="GET" style="display: flex;">
+                        <div class="input-group w-100">
+                            <input style="margin-right: 11px; width: 370px;" type="text" class="form-control" placeholder="Search" name="q" value="{{ q }}">
+                            <div class="input-group-append">
+                                <button style="padding: 7px 20px" class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> <!-- search-wrap .end// -->
+                </li>
 {% endblock  %}
-
-
+ {% endcomment %}
 
 {% block active %}
-                <li class=" "><a href="{% url 'home' %}">Home</a></li>
-                <li class=""><a href="{% url 'shop' %}">Shop page</a></li>
-                <li class="active"><a href="{% url 'single_product' %}">Single product</a></li>
+                <li class=""><a href="{% url 'home' %}">Home</a></li>
+                <li class=""><a href="{% url 'shop' %}">Shop</a></li>
                 <li class=""><a href="{% url 'cart' %}">Cart</a></li>
-                <li class=""><a href="{% url 'checkout' %}">Checkout</a></li>
-                <li class=""><a href="#">Contact</a></li>
+                <li class="active"><a href="{% url 'shop' %}">Single Product</a></li>
+                <li style="margin-left: 340px; margin-top: 13px;">
+                    <form action="{% url 'search' %}" class="search" method="GET" style="display: flex;">
+                        <div class="input-group w-100">
+                            <input style="margin-right: 11px; width: 370px; border-radius:4px" type="text" class="form-control" placeholder="Search" name="q" value="{{ q }}">
+                            <div class="input-group-append" style="display: flex;">
+                                <button style="padding: 7px 20px" class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> <!-- search-wrap .end// -->
+                </li>
 {% endblock  %}

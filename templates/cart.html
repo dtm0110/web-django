@@ -31,16 +31,16 @@
                                         {% for item in CartItems %}
                                             {% csrf_token %}
                                             <tr class="cart_item">
-                                                <td class="product-remove">
+                                                <td class="product-remove" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm khỏi giỏ hàng?')">
                                                     <a title="Remove this item" class="remove" href="{% url 'remove_cart_item' item.product.id item.id %}">×</a> 
                                                 </td>
 
                                                 <td class="product-thumbnail">
-                                                    <a href="single-product.htm"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{item.product.img.url}}" pagespeed_url_hash="2028383707" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+                                                    <a href="{{product.get_absolute_url}}"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{item.product.img.url}}" pagespeed_url_hash="2028383707" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
                                                 </td>
 
                                                 <td class="product-name">
-                                                    <a href="single-product.htm">{{item.product.name}}</a> 
+                                                    <a href="{{product.get_absolute_url}}">{{item.product.name}}</a> 
                                                 </td>
 
                                                 <td class="product-price">
@@ -49,17 +49,8 @@
 
                                                 <td class="product-quantity">
                                                     <div class="quantity buttons_added">
-                                                        {% comment %} <input type="submit class="minus" value="-" > {% endcomment %}
-                                                        {% comment %} <button class="btn btn-light" style="font-size:12px;padding:4px 12px; border-radius:2px" type="submit" id="button-minus" onclick="location.href='{% url 'remove_cart' item.product.id item.id %}'">
-                                                            <i class="fa fa-minus"></i>
-                                                        </button> {% endcomment %}
                                                         <a href="{% url 'remove_cart' item.product.id item.id %}" style="font-size:12px;padding:4px 12px; border-radius:2px; background:#5a88ca;color:#fff">-</a>
-                                                        {% comment %} <a href="{% url 'remove_cart' item.product.id item.id %} " class="btn btn-light"/> {% endcomment %}
-                                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="{{item.quantity}}" >
-                                                        {% comment %} <input type="button" class="plus" value="+"> {% endcomment %}
-                                                        {% comment %} <button class="btn btn-light" style="font-size:12px;padding:4px 12px; border-radius:2px" type="submit" id="button-plus" onclick="location.href='{% url 'add_cart' item.product.id %}'">
-                                                            <i class="fa fa-plus"></i>
-                                                        </button> {% endcomment %}
+                                                        <span style="padding:2px 10px;margin:0 5px; border:1px solid #5a88ca">{{item.quantity}}</span>
                                                         <a href="{% url 'add_cart' item.product.id %}" style="font-size:12px;padding:4px 12px; border-radius:2px; background:#5a88ca;color:#fff">+</a>
                                                     </div>
                                                 </td>
@@ -79,8 +70,11 @@
                                                     <input type="text" placeholder="Nhập mã tại đây" value="" id="coupon_code" class="input-text" name="coupon_code" style="margin-left:10px">
                                                     <input type="submit" value="Lấy mã giảm giá" name="apply_coupon" class="button" style="margin-left:20px">
                                                 </div>
-{% comment %}                                                 <input type="submit" value="Checkout" name="proceed" style="margin-left:480px" class="checkout-button button alt wc-forward"> {% endcomment %}
+                                                {% if CartItems|length > 0 %}
                                                     <a href="{% url 'checkout' %}" style="margin-left:480px;line-height:42px;padding:11px 20px;background-color:#5a88ca;color:#fff;font-size:17px;text-decoration:none" class="checkout-button button alt wc-forward">Checkout</a>
+                                                {% else %}
+                                                    <a href="{% url 'shop' %}" style="margin-left:400px;line-height:42px;padding:11px 20px;background-color:#5a88ca;color:#fff;font-size:17px;text-decoration:none" class="checkout-button button alt wc-forward">Return Shop Page</a>
+                                                {% endif%}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -96,9 +90,8 @@
 {% endblock  %}
 
 {% block active %}
-                <li class=" "><a href="{% url 'home' %}">Home</a></li>
+                <li class=""><a href="{% url 'home' %}">Home</a></li>
                 <li class=""><a href="{% url 'shop' %}">Shop page</a></li>
-                <li class=""><a href="{% url 'single_product' %}">Single product</a></li>
                 <li class="active"><a href="{% url 'cart' %}">Cart</a></li>
-                <li class=""><a href="{% url 'checkout' %}">Checkout</a></li>
+                
 {% endblock  %}
